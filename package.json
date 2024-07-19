@@ -1,10 +1,30 @@
 {
   "name": "ola-maps",
-  "version": "0.0.2",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "author": "",
+  "version": "0.0.3",
+  "description": "A Node.js Library for Easy Integration with OLA Maps API",
+  "keywords": [
+    "ola",
+    "ola maps",
+    "ola maps api",
+    "ola maps sdk",
+    "ola sdk",
+    "maps",
+    "online maps",
+    "openstreetmap",
+    "open street maps",
+    "openstreetmaps API",
+    "indian map",
+    "node",
+    "ola maps node",
+    "ola maps npm"
+  ],
+  "license": "MIT",
+  "author": "isanjayachar <mr.sanjayachar@gmail.com",
+  "homepage": "https://github.com/isanjayachar/ola-maps-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isanjayachar/ola-maps-sdk.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -d --outDir dist ./src/index.ts",
