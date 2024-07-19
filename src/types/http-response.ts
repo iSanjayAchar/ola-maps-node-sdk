@@ -1,4 +1,4 @@
-export type IBaseResponse<T = {}> = {
+export type IBaseResponse<T = null> = {
     headers: Record<string, string>;
     statusCode: number;
     statusText: string;
@@ -34,12 +34,12 @@ export type IPlacesAutoCompleteResult = {
         };
         terms: Array<{
             offset: number;
-            value: string;            
+            value: string;
         }>;
         distance_meters: number;
         matched_substrings: Array<{
             offset: number;
-            length: number;            
+            length: number;
         }>;
         types: Array<string>;
         reference: string;
@@ -97,7 +97,7 @@ export type IReverseGeocodingResult = {
                     lng: number;
                     lat: number;
                 }
-            },            
+            },
             location: {
                 lng: number;
                 lat: number;

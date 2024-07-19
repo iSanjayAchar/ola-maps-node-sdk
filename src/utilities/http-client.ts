@@ -30,23 +30,23 @@ function httpClientInit(apiKey: string) {
 
     /**
      * Axios request interceptor to modify outgoing requests.
-     * 
+     *
      * This interceptor performs the following actions on each request:
-     * 
+     *
      * 1. Sets the `Accept` header to "application/json" to indicate that the client expects JSON responses.
      * 2. Sets the `Content-Type` header to "application/json" to inform the server that the request body is in JSON format.
      * 3. Adds an `api_key` query parameter to the request URL with the value provided in the `apiKey` argument.
      * 4. Replaces the placeholder `{version}` in the request URL with the actual API version from the `version` variable.
-     * 
+     *
      * @param request - The Axios request configuration object.
      * @returns The modified request configuration object.
-     */    
+     */
     client.interceptors.request.use((request) => {
         request.headers.Accept = "application/json";
         request.headers["Content-Type"] = "application/json";
         request.params = {
             api_key: apiKey,
-        }
+        };
 
         request.url = request.url?.replace("{version}", version);
 
@@ -57,24 +57,24 @@ function httpClientInit(apiKey: string) {
      * Axios response interceptor to modify incoming responses.
      *
      * This interceptor restructures the response data to include:
-     * 
+     *
      *   - `headers`: The response headers from the server.
      *   - `statusCode`: The HTTP status code of the response (e.g., 200 for success).
      *   - `statusText`: The HTTP status text corresponding to the status code (e.g., "OK" for 200).
      *   - `body`: The original response data returned by the server.
-     * 
+     *
      * This restructuring provides a consistent format for response data, regardless of the specific API endpoint.
      *
      * @param response - The Axios response object.
      * @returns The modified response object with the restructured data.
-     */    
+     */
     client.interceptors.response.use((response) => {
         response.data = {
             headers: response.headers,
             statusCode: response.status,
             statusText: response.statusText,
             body: response.data,
-        }
+        };
 
         return response;
     });

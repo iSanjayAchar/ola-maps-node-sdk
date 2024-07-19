@@ -1,4 +1,4 @@
-import { IVersion } from "./types";
+import {IVersion} from "./types";
 
 const ENV: {
     [key in IVersion]: Record<string, string>
@@ -9,7 +9,7 @@ const ENV: {
         geoCodingPath: "/places/{version}/geocode",
         reverseGeoCodingPath: "/places/{version}/reverse-geocode",
     },
-}
+};
 
 export {
     ENV,
