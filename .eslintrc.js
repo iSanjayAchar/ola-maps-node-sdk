@@ -22,7 +22,8 @@ module.exports = {
         "/dist/**/*", // Ignore built files.
         "/dev_test/**/*",
         "/src/test.ts",
-        ".eslintrc.js"
+		"/coverage/**",
+        ".eslintrc.js",
     ],
     plugins: [
         "@typescript-eslint",

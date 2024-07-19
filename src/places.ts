@@ -87,7 +87,7 @@ export class Places {
         process.env.API_VERSION = this.version;
 
         for (const variable in env) {
-            if (Object.hasOwn(env, variable)) {
+            if (env[variable]) {
                 process.env[variable] = env[variable];
             }
         }

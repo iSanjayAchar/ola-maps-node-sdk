@@ -1,6 +1,6 @@
 {
   "name": "ola-maps",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Node.js Library for Easy Integration with OLA Maps API",
   "keywords": [
     "ola",
