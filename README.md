@@ -1,5 +1,6 @@
 # OLA Maps SDK (WIP)
 A Node.js Library for Easy Integration with OLA Maps API
+<br /><br />
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 ### Installation
 ```
