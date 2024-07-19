@@ -8,6 +8,7 @@ const ENV: {
         autoCompletePath: "/places/{version}/autocomplete",
         geoCodingPath: "/places/{version}/geocode",
         reverseGeoCodingPath: "/places/{version}/reverse-geocode",
+        directionPath: "/routing/{version}/directions",
     },
 };
 

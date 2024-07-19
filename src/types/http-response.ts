@@ -113,3 +113,56 @@ export type IReverseGeocodingResult = {
         layer: Array<string>;
     }>;
 };
+
+export type IDirectionResult = {
+    status: IStatus;
+    source_from: string;
+    geocoded_waypoints: Array<{
+        geocoder_status: IStatus;
+        place_id: string;
+        types: Array<string>;
+    }>;
+    routes: Array<{
+        bounds: Record<string, string | number>;
+        copyrights: string;
+        legs: Array<{
+            distance: number;
+            readable_distance: string;
+            duration: string;
+            readable_duration: string;
+            start_address: string;
+            end_address: string;
+            start_location: {
+                lat: number;
+                lng: number;
+            };
+            end_location: {
+                lat: number;
+                lng: number;
+            };
+            steps: Array<{
+                distance: number;
+                readable_distance: string;
+                duration: number;
+                readable_duration: string;
+                start_location: {
+                    lat: number;
+                    lng: number;
+                };
+                end_location: {
+                    lat: number;
+                    lng: number;
+                };
+                instructions: string;
+                maneuver: string;
+                bearing_before: number;
+                bearing_after: number;
+            }>
+        }>;
+        overview_polyline: string;
+        travel_advisory: string;
+        summary: string;
+        warnings: Array<string>;
+        waypoint_order: Record<string, string>;
+    }>;
+};
