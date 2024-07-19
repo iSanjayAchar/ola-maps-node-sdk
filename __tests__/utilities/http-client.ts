@@ -1,9 +1,9 @@
 // __tests__/http-client.test.ts
-import { AxiosInstance } from "axios";
-import { httpClientInit } from "../../src/utilities/http-client";
+import {AxiosInstance} from "axios";
+import {httpClientInit} from "../../src/utilities/http-client";
 import * as nock from "nock";
 
-describe('httpClientInit', () => {
+describe("httpClientInit", () => {
     let client: AxiosInstance;
 
     beforeAll(() => {
@@ -16,11 +16,11 @@ describe('httpClientInit', () => {
         nock.cleanAll(); // Clean up nock intercepts
     });
 
-    it('should add headers and params to the request', async () => {
+    it("should add headers and params to the request", async () => {
         const scope = nock("https://api.example.com")
             .get("/test")
-            .query({ api_key: "test_api_key" })
-            .reply(200, { data: "ok" });
+            .query({api_key: "test_api_key"})
+            .reply(200, {data: "ok"});
 
         const response = await client.get("/test");
 
