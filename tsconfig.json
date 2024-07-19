@@ -6,7 +6,10 @@
 		"outDir": "lib",
 		"sourceMap": true,
 		"strict": true,
-		"target": "es2022",
+		"target": "ES2023",
+		"lib": [
+			"es2023"
+		],
 		"rootDir": ".",
 		"baseUrl": ".",
 		"resolveJsonModule": true
