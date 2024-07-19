@@ -1,1 +1,1 @@
-export type ILanguage = "en";
+export type ILanguage = "en" | "kn" | "hi";

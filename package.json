@@ -1,7 +1,7 @@
 {
   "name": "ola-maps",
-  "version": "0.0.4",
-  "description": "A Node.js Library for Easy Integration with OLA Maps API",
+  "version": "0.0.5",
+  "description": "JavaScript SDK for a seamless interface to interact with the OLA Maps API, simplifying geocoding, reverse geocoding, and routing operations.",
   "keywords": [
     "ola",
     "ola maps",
@@ -20,10 +20,10 @@
   ],
   "license": "MIT",
   "author": "isanjayachar <mr.sanjayachar@gmail.com",
-  "homepage": "https://github.com/isanjayachar/ola-maps-sdk",
+  "homepage": "https://github.com/isanjayachar/ola-maps-node-sdk",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isanjayachar/ola-maps-sdk.git"
+    "url": "git+https://github.com/isanjayachar/ola-maps-node-sdk.git"
   },
   "main": "dist/index.js",
   "scripts": {
