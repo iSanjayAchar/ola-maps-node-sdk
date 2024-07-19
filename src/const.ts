@@ -6,6 +6,7 @@ const ENV: {
     v1: {
         baseUrl: "https://api.olamaps.io",
         autoCompletePath: "/places/{version}/autocomplete",
+        geoCodingPath: "/places/{version}/geocode",
     },
 }
 

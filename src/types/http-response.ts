@@ -5,10 +5,12 @@ export type IBaseResponse<T = {}> = {
     body: T;
 }
 
+type IStatus = "ok" | "zero_result";
+
 export type IPlacesAutoCompleteResult = {
     error_message: string;
     info_messages: string[];
-    status: string;
+    status: IStatus;
     predictions: Array<{
         place_id: string;
         geometry: {
@@ -37,5 +39,38 @@ export type IPlacesAutoCompleteResult = {
         }>;
         types: Array<string>;
         reference: string;
+    }>;
+};
+
+export type IGeocodingResult = {
+    status: IStatus;
+    geocodingResults: Array<{
+        formatted_address: string;
+        types: Array<string>;
+        name: string;
+        geometry: {
+            viewport: {
+                southwest: {
+                    lng: number;
+                    lat: number;
+                },
+                northeast: {
+                    lng: number;
+                    lat: number;
+                }
+            },
+            location_type: string;
+        },
+        address_components: Array<{
+            types: Array<string>;
+            short_name: string;
+            long_name: string;
+        }>;
+        plus_code: {
+            compound_code: string;
+            global_code: string;
+        },
+        place_id: string;
+        layer: Array<string>;
     }>;
 };
