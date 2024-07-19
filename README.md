@@ -1,65 +1,81 @@
-# OLA Maps SDK (WIP)
-A Node.js Library for Easy Integration with OLA Maps API
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+# OLA Maps SDK
+This JavaScript SDK provides a seamless interface to interact with the OLA Maps API, simplifying geocoding, reverse geocoding, and routing operations.
+<br />
+<br />
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+
+
 ### Installation
+Install the SDK using npm:
+```bash
+npm i --save ola-maps
 ```
-npm i -S ola-maps
-# OR
+Or using yarn:
+```bash
 yarn add ola-maps
 ```
 
+### Modules
+The SDK consists of two main modules:
+1. **Places**: Provides functionality for autocomplete, geocoding, and reverse geocoding. For more details, check the [Places documentation](/documentation/places.md).
+2. **Routing**: Enables the calculation of directions between locations. For more details, check the [Routing documentation](/documentation/routing.md)
+
 ### Authentication
-While OLA Map APIs support two type of authentication, this SDK only supports only authentication using `API_KEY`. To generate `API_KEY`, check the documentation - https://maps.olakrutrim.com/docs/auth
+This SDK supports authentication using `API_KEY`. Generate your API key by following the instructions in the OLA Maps documentation: https://maps.olakrutrim.com/docs/auth
 
-### Support
-1. Places
-    - [x] Autocomplete
-    - [x] Geocode
-    - [x] Reverse Geocode
-2. Routing
-    - [ ] Direction 
+### Basic Example
+```javascript
+import { Places, Routing } from "ola-maps";
 
-### Places
-Comprehensive set of APIs to access OLA Maps API with ease
+const placesClient = new Places("YOUR_API_KEY");
+const routingClient = new Routing("YOUR_API_KEY");
 
-#### Auto Complete
-Autocomplete provides intuitive suggestions of places to be looked up. This helps accurate lookup of places based on the text provided. This solves a lot of use cases like lookup of popular places like restaurants, malls, etc.
+async function main() {
+  const autocompleteResult = await placesClient.autocomplete("Koramangala");
+  console.log(autocompleteResult);
 
-```
-import { Places } from "ola-maps";
+  const geocodeResult = await placesClient.geocode("Regent Insignia, 4th Block, 17th Main, Koramangala");
+  console.log(geocodeResult);
 
-const places = new Places("API_KEY", "VERSION"); // Version is optional
+  const reverseGeocodeResult = await placesClient.reverse_geocode(12.9716, 77.5946);
+  console.log(reverseGeocodeResult);
 
-async function query(input) {
-    const result = places.autocomplete(input);
-    console.log(result);
+  const origin = { lat: 12.9716, lng: 77.5946 }; // Bengaluru
+  const destination = { lat: 19.0760, lng: 72.8777 }; // Mumbai
+  const directionResult = await routingClient.direction(origin, destination);
+  console.log(directionResult);
 }
+
+main();
 ```
 
-#### Geocode
-Forward Geocoding API helps translate real-world text-based addresses into geographic coordinates. This is useful in mapping services, route planning, location-based searches, and delivery logistics.
+### Issues
+If you encounter any problems or have feature requests, please file an issue on our GitHub repository - https://github.com/iSanjayAchar/ola-maps-node-sdk/issues/new
 
-```
-import { Places } from "ola-maps";
+### Contributors ✨
+<table>
+  <tbody>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/iSanjayAchar">
+        <img src="https://avatars.githubusercontent.com/u/11937721?v=3?s=100" width="100px;" alt="Kent C. Dodds" />
+        <br />
+        <sub>
+          <b>Sanjay Achar</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/JeevanAchar">
+        <img src="https://avatars.githubusercontent.com/u/114219448?v=3?s=100" width="100px;" alt="Kent C. Dodds" />
+        <br />
+        <sub>
+          <b>Jeevan V</b>
+        </sub>
+      </a>
+    </td>    
+  </tbody>
+</table>
 
-const places = new Places("API_KEY", "VERSION"); // Version is optional
-
-async function query(input) {
-    const result = places.geocode(input);
-    console.log(result);
-}
-```
-
-#### Reverse Geocode
-Reverse Geocoding API helps in translating coordinates to real world text based addressing. This is helpful in scenarios like taxi pickup, taxi drop, delivery/courier, etc.
-
-```
-import { Places } from "ola-maps";
-
-const places = new Places("API_KEY", "VERSION"); // Version is optional
-
-async function query(input) {
-    const result = places.reverse_geocode(input);
-    console.log(result);
-}
-```
+### Licence
+This SDK is released under the MIT License.
