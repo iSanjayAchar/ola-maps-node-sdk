@@ -1,4 +1,4 @@
-# Places API
+# Routing API
 This JavaScript library provides a client to interact with the OLA Maps Routing API. It simplifies the process of calculating directions between locations using Axios for HTTP requests
 
 ### Usage
