@@ -1,7 +1,7 @@
-import { AxiosInstance, AxiosResponse } from "axios";
-import { ENV } from "./const";
-import { IBaseResponse, IDirectionResult, ILanguage, IVersion } from "./types";
-import { httpClientInit } from "./utilities/http-client";
+import {AxiosInstance, AxiosResponse} from "axios";
+import {ENV} from "./const";
+import {IBaseResponse, IDirectionResult, ILanguage, IVersion} from "./types";
+import {httpClientInit} from "./utilities/http-client";
 
 type Coordinates = {
     lat: string | number;
@@ -19,6 +19,12 @@ type DirectionOptions = {
     traffic_metadata?: boolean;
 }
 
+/**
+ * Client for interacting with the OLA Maps Routing API.
+ *
+ * This class provides methods for calculating directions between locations,
+ * handling authentication, and managing API requests.
+ */
 export class Routing {
     /**
      * API key for authentication with the Places service.
@@ -83,7 +89,7 @@ export class Routing {
      * @param {DirectionOptions} [options] - Optional parameters for customizing the direction request.
      * @returns {Promise<IBaseResponse<IDirectionResult>>} A Promise that resolves to a standardized API response containing the direction results.
      * @throws {Error} If an error occurs during the API request, the Promise will be rejected with the error.
-     */    
+     */
     public async direction(origin: Coordinates, destination: Coordinates, options?: DirectionOptions): Promise<IBaseResponse<IDirectionResult>> {
         try {
             let path = `${process.env.directionPath}?origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}&`;
@@ -120,7 +126,6 @@ export class Routing {
                 if (options.waypoints) {
                     path += `waypoints=${options.waypoints.map((points) => points.join(",")).join("|")}&`;
                 }
-
             }
 
             if (path.endsWith("&") || path.endsWith("?")) {
