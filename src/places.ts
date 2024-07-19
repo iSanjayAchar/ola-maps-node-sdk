@@ -143,12 +143,12 @@ export class Places {
     }
 
     /**
-     * Performs geocoding based on the provided address and options.
+     * Performs geocode based on the provided address and options.
      * @param address - The address to geocode.
      * @param options - (Optional) Additional options to customize the request.
      * @returns A Promise that resolves to the geocoding results.
      */
-    public async geocoding(address: string, options?: GeocodingOption): Promise<IBaseResponse<IGeocodingResult>> {
+    public async geocode(address: string, options?: GeocodingOption): Promise<IBaseResponse<IGeocodingResult>> {
         try {
             let path = `${process.env.geoCodingPath}?address=${encodeURI(address)}`;
 
@@ -185,7 +185,7 @@ export class Places {
     }
 
     /**
-     * Performs reverse geocoding to get address details from latitude and longitude coordinates.
+     * Performs reverse geocode to get address details from latitude and longitude coordinates.
      *
      * @param lat - The latitude coordinate.
      * @param lng - The longitude coordinate.
@@ -195,7 +195,7 @@ export class Places {
      * @returns A Promise that resolves to the reverse geocoding results.
      * @throws {Error} If an error occurs during the request.
      */
-    public async reverse_geocoding(lat: string | number, lng: string| number, options?: ReverseGeocodingOption): Promise<IBaseResponse<IReverseGeocodingResult>> {
+    public async reverse_geocode(lat: string | number, lng: string| number, options?: ReverseGeocodingOption): Promise<IBaseResponse<IReverseGeocodingResult>> {
         try {
             let path = `${process.env.reverseGeoCodingPath}?latlng=${lat},${lng}?`;
 
