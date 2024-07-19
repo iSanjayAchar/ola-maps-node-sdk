@@ -5,12 +5,16 @@ export type IBaseResponse<T = {}> = {
     body: T;
 }
 
-type IStatus = "ok" | "zero_result";
+type IStatus = "ok" | "zero_result" | "bad_request";
+type IPlusCode = {
+    compound_code: string;
+    global_code: string;
+}
 
 export type IPlacesAutoCompleteResult = {
     error_message: string;
     info_messages: string[];
-    status: IStatus;
+    status: "ok"; // for some reasons, this API doesn't return zero_result or bad_request according to their documentation
     predictions: Array<{
         place_id: string;
         geometry: {
@@ -44,6 +48,7 @@ export type IPlacesAutoCompleteResult = {
 
 export type IGeocodingResult = {
     status: IStatus;
+    request_id?: string;
     geocodingResults: Array<{
         formatted_address: string;
         types: Array<string>;
@@ -66,10 +71,44 @@ export type IGeocodingResult = {
             short_name: string;
             long_name: string;
         }>;
-        plus_code: {
-            compound_code: string;
-            global_code: string;
-        },
+        plus_code: IPlusCode,
+        place_id: string;
+        layer: Array<string>;
+    }>;
+};
+
+export type IReverseGeocodingResult = {
+    status: IStatus;
+    plus_code: IPlusCode;
+    request_id?: string;
+    error_message: string;
+    info_messages: Array<string>;
+    results: Array<{
+        formatted_address: string;
+        types: Array<string>;
+        name: string;
+        geometry: {
+            viewport: {
+                southwest: {
+                    lng: number;
+                    lat: number;
+                },
+                northeast: {
+                    lng: number;
+                    lat: number;
+                }
+            },            
+            location: {
+                lng: number;
+                lat: number;
+            };
+        };
+        address_components: Array<{
+            types: string;
+            short_name: string;
+            long_name: string;
+        }>;
+        plus_code: IPlusCode;
         place_id: string;
         layer: Array<string>;
     }>;
