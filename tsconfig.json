@@ -7,9 +7,6 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "ES2023",
-		"lib": [
-			"es2023"
-		],
 		"rootDir": ".",
 		"baseUrl": ".",
 		"resolveJsonModule": true
