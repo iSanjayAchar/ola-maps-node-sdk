@@ -4,7 +4,9 @@ This JavaScript SDK provides a seamless interface to interact with the OLA Maps 
 <br />
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/cebb7bf6c07048ccbd6fdf756d56b0bf)](https://app.codacy.com/gh/iSanjayAchar/ola-maps-node-sdk/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
-
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+![NPM Version](https://img.shields.io/npm/v/ola-maps)
+![Licence](https://img.shields.io/badge/license-MIT-blue)
 
 ### Installation
 Install the SDK using npm:
