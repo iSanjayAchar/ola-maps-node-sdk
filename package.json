@@ -1,6 +1,6 @@
 {
   "name": "ola-maps",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "JavaScript SDK for a seamless interface to interact with the OLA Maps API, simplifying geocoding, reverse geocoding, and routing operations.",
   "keywords": [
     "ola",
